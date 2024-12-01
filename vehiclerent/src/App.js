@@ -12,7 +12,7 @@ function App() {
   const handleAdd = (e) => {
     e.preventDefault();
     if (image && mobil && lokasi && pax && harga) {
-      const newEntry = { mobil, lokasi, pax, harga };
+      const newEntry = { image, mobil, lokasi, pax, harga };
       setData([...data, newEntry]);
       setImage(null);
       setMobil("");
@@ -32,14 +32,14 @@ function App() {
   };
 
   return (
-    <div className="app-container">
+    <div className="app-container m-5">
       <form onSubmit={handleAdd} className="form-container" class="input-group mb-3 padding-bottom-4">
         <input class="form-control" type="text" placeholder="Mobil" value={mobil} onChange={(e) => setMobil(e.target.value)} required />
         <input class="form-control" type="text" placeholder="Lokasi" value={lokasi} onChange={(e) => setLokasi(e.target.value)} required />
         <input class="form-control" type="number" placeholder="Pax" value={pax} onChange={(e) => setPax(e.target.value)} required />
         <input class="form-control" type="number" placeholder="Harga" value={harga} onChange={(e) => setHarga(e.target.value)} required />
         <input type="file" accept="image/*" id="imageInput" onChange={handleImageUpload} required />
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn purple">
           Add
         </button>
       </form>
@@ -57,7 +57,7 @@ function App() {
         <tbody>
           {data.map((item, index) => (
             <tr key={index}>
-              <td>{item.image && <img src={item.image} alt="Uploaded" className="table-image" />}</td>
+              <td>{item.image && <img src={item.image} alt="Uploaded" className="table-image" style={{ maxWidth: "50px", maxHeight: "50px" }} />}</td>
               <td>{item.mobil}</td>
               <td>{item.lokasi}</td>
               <td>{item.pax}</td>

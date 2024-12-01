@@ -43,3 +43,8 @@
   object-fit: cover;
   border-radius: 5px;
 }
+
+.purple{
+  background-color:rgb(70, 1, 197);
+  color: white;
+}
